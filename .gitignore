@@ -1,0 +1,10 @@
+# Login profiles and raw inspection images may contain account data.
+capture-harness/.artifacts/
+outputs/captures/automated/raw/
+outputs/captures/inbox/
+.agents/
+.codex/
+_site/
+work/
+outputs/*.pptx
+outputs/*.pptx.inspect.ndjson

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="data:," />
+    <meta
+      name="description"
+      content="2026 중부 중등 학교로 찾아가는 AI·디지털 역량 강화 직무연수 웹 프레젠테이션"
+    />
+    <title>학교로 찾아가는 디지털 직무연수 - 센스쿨 활용</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="deck" class="deck" aria-live="polite">
+      <div id="viewport" class="viewport">
+        <article id="slideFrame" class="slide-frame" tabindex="-1"></article>
+      </div>
+
+      <nav class="deck-controls" aria-label="프레젠테이션 도구">
+        <button id="prevButton" type="button" title="이전 슬라이드">←</button>
+        <button id="overviewButton" type="button" title="슬라이드 개요 (O)">개요</button>
+        <span id="counter" class="deck-counter" aria-live="off"></span>
+        <button id="printButton" type="button" title="PDF로 출력 (P)">PDF 출력</button>
+        <button id="fullscreenButton" type="button" title="전체화면 (F)">전체화면</button>
+        <button id="nextButton" type="button" title="다음 슬라이드">→</button>
+      </nav>
+
+      <div class="progress" aria-hidden="true"><span id="progressFill"></span></div>
+    </main>
+
+    <dialog id="overviewDialog" class="deck-dialog">
+      <header><h2>전체 슬라이드</h2><button type="button" data-close>닫기</button></header>
+      <div id="overviewGrid" class="overview-grid"></div>
+    </dialog>
+
+    <dialog id="helpDialog" class="deck-dialog help-dialog">
+      <header><h2>발표 단축키</h2><button type="button" data-close>닫기</button></header>
+      <div class="help-grid">
+        <p><kbd>→</kbd> <kbd>Space</kbd><span>다음 단계·다음 장</span></p>
+        <p><kbd>←</kbd><span>이전 단계·이전 장</span></p>
+        <p><kbd>Home</kbd> <kbd>End</kbd><span>처음·마지막 장</span></p>
+        <p><kbd>F</kbd><span>전체화면</span></p>
+        <p><kbd>O</kbd><span>전체 슬라이드 개요</span></p>
+        <p><kbd>P</kbd><span>PDF 출력</span></p>
+        <p><kbd>?</kbd><span>이 도움말</span></p>
+      </div>
+    </dialog>
+
+    <section id="printDeck" class="print-deck" aria-hidden="true"></section>
+
+    <noscript>이 프레젠테이션의 이동 기능을 사용하려면 JavaScript를 켜 주세요.</noscript>
+    <script src="./slides-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
