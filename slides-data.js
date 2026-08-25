@@ -376,27 +376,30 @@ window.SLIDES = [
   {
     id: 30,
     section: 'SenGPT',
-    title: '하나의 사례를 세 가지 기능으로 확장합니다',
-    subtitle: '교육정책·디지털교육 주간 브리핑',
+    title: '나만의 에이전트를 두 방식으로 이어 씁니다',
+    subtitle: '먼저 역할과 도구를 저장하고, 필요에 따라 예약하거나 워크플로우에서 불러옵니다.',
     layout: 'diagram',
     body: `<div class="case-map">
-      <article class="agent"><b>1</b><h3>나만의 에이전트</h3><p>공식 소식을 찾고<br />교사 관점 브리핑 작성</p></article>
-      <div class="branch"><i>↗</i><i>↘</i></div>
-      <div class="branch-targets"><article><b>2</b><h3>대화 예약</h3><p>정해진 때 같은 에이전트 실행<br />결과를 이메일로 확인</p></article><article><b>3</b><h3>워크플로우</h3><p>브리핑을 핵심 3줄·영향·<br />확인할 일로 재구성</p></article></div>
+      <article class="agent"><span class="relation-tag">공통 기반</span><h3>나만의 에이전트</h3><p>모델·프롬프트·참고 파일·도구를 저장해<br />교육정책 브리핑 역할을 만듭니다.</p></article>
+      <div class="branch"><strong>필요에 따라</strong><i>↗</i><i>↘</i></div>
+      <div class="branch-targets">
+        <article><span class="relation-tag">선택 A</span><h3>대화 예약</h3><p>정해진 시각에 같은 에이전트를 실행하고<br />결과를 대화 또는 이메일로 확인합니다.</p></article>
+        <article><span class="relation-tag">선택 B</span><h3>워크플로우에서 호출</h3><p>여러 단계 중 한 단계로 같은 에이전트를 불러와<br />그 결과를 다음 단계에 전달합니다.</p></article>
+      </div>
     </div>
-    <aside class="rule-strip">예약과 워크플로우는 직렬 단계가 아니라 같은 에이전트를 확장하는 서로 다른 경로입니다.</aside>`,
+    <aside class="rule-strip">예약과 워크플로우는 서로 이어지는 순서가 아니라, 같은 에이전트를 활용하는 두 가지 선택입니다.</aside>`,
   },
   {
     id: 31,
     section: 'SenGPT',
-    title: 'Opus 5를 고르고 마법봉으로 확장합니다',
+    title: 'GPT-5.6 Luna를 고르고 마법봉으로 확장합니다',
     layout: 'media-process',
     body: `<div class="sengpt-process">
       <div class="screen-stack">
-        ${img(`${CAP}/automated/sengpt-briefing/29_agent-model-opus5.png`, 'SenGPT 에이전트 모델 Claude Opus 5 선택', '실제 제작 모델 · Claude Opus 5', 'primary-screen')}
+        ${img(`${CAP}/automated/sengpt-briefing/29_agent-model-gpt56-luna.png`, 'SenGPT 에이전트 모델 GPT-5.6 Luna 선택', '실제 제작 모델 · GPT-5.6 Luna', 'primary-screen')}
         ${img(`${CAP}/automated/sengpt-briefing/03_prompt-after-magic-wand.png`, 'SenGPT 마법봉으로 확장된 프롬프트', '마법봉은 초안을 역할·절차·제약·형식으로 확장', 'secondary-screen')}
       </div>
-      <ol class="vertical-rail"><li>Opus 5</li><li>이름·설명</li><li>짧은 프롬프트</li><li class="magic">마법봉</li><li>대화 시작 가이드 2~3개</li></ol>
+      <ol class="vertical-rail"><li>GPT-5.6 Luna</li><li>이름·설명</li><li>짧은 프롬프트</li><li class="magic">마법봉</li><li>대화 시작 가이드 2~3개</li></ol>
     </div>
     <div class="starter-guides"><span>최근 7일 소식 브리핑</span><span>서울시교육청 확인할 일</span><span>신청·연수 마감 체크리스트</span></div>`,
     source: `<a href="https://wrks.ai/guides/agent/00-create-agent.html">SenGPT 나만의 에이전트 공식 가이드</a>`,
@@ -433,10 +436,22 @@ window.SLIDES = [
     section: 'SenGPT',
     title: '이 사례에는 웹 검색 하나만 연결합니다',
     layout: 'media-gallery',
-    body: `<div class="gallery three sengpt-results">
-      ${img(`${CAP}/automated/sengpt-briefing/10_agent-sample-result.png`, '웹 검색 도구가 없어 최신 정보를 확인하지 못한 결과', '1 · 최신 정보 확인 실패')}
-      ${img(`${CAP}/automated/sengpt-briefing/11_web-search-tool-corrected.png`, 'SenGPT 웹 검색 도구 선택', '2 · 웹 검색만 켜기')}
-      ${img(`${CAP}/automated/sengpt-briefing/14_agent-web-result.png`, '공식 링크가 포함된 실제 브리핑 결과', '3 · 공식 원문 결과 확인')}
+    body: `<div class="sengpt-tool-flow">
+      <article class="sengpt-tool-step">
+        <header><b>1</b><div><strong>최신 정보 확인 실패</strong><span>웹 검색 도구가 없는 응답</span></div></header>
+        <figure class="result-shot"><div class="result-shot-box"><img src="${CAP}/automated/sengpt-briefing/10_agent-sample-result.png" alt="웹 검색 도구가 없어 최신 정보를 확인하지 못한 전체 결과 화면" /></div></figure>
+        <p class="result-note is-warning">모델의 기존 지식으로만 답변해 최신 공식 원문을 확인하지 못했습니다.</p>
+      </article>
+      <article class="sengpt-tool-step tool-select-step">
+        <header><b>2</b><div><strong>웹 검색만 켜기</strong><span>에이전트 만들기 → 내부 도구 선택</span></div></header>
+        <div class="tool-choice-visual"><img src="${CAP}/automated/sengpt-briefing/11_web-search-tool-corrected.png" alt="코드 실행, 차트, 문서 요약은 끄고 웹 검색만 선택한 화면" /></div>
+        <div class="tool-choice-copy"><p><strong>ON</strong><span>웹 검색</span></p><p><strong>OFF</strong><span>코드 실행 · 차트 · 문서 요약</span></p><small>이 사례에 필요한 도구 하나만 선택</small></div>
+      </article>
+      <article class="sengpt-tool-step">
+        <header><b>3</b><div><strong>공식 원문 결과 확인</strong><span>웹 검색을 연결한 뒤 다시 실행</span></div></header>
+        <figure class="result-shot"><div class="result-shot-box"><img src="${CAP}/automated/sengpt-briefing/14_agent-web-result.png" alt="공식 기관 링크와 게시일이 포함된 전체 브리핑 결과 화면" /></div></figure>
+        <p class="result-note is-success">기관명·게시일·원문 링크를 포함한 최신 브리핑 결과를 확인합니다.</p>
+      </article>
     </div>
     <div class="verify-rail"><span>기관명</span><span>게시일</span><span>원문 링크</span><span>기간·건수</span><span>교사에게 미치는 영향</span></div>`,
   },
