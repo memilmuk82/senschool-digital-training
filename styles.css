@@ -75,7 +75,7 @@ kbd { display: inline-flex; align-items: center; justify-content: center; min-wi
 
 .special-body { width: 100%; height: 100%; }
 .slide-cover .slide-footer, .slide-qr-single .slide-footer { display: none; }
-.cover-image { width: 100%; height: 100%; object-fit: cover; }
+.cover-image { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; background: white; }
 .cover-presenter { position: absolute; right: 76px; bottom: 66px; margin: 0; padding: 12px 19px; border-radius: 12px; color: var(--navy); background: rgba(255, 255, 255, .92); box-shadow: 0 8px 24px rgba(7, 29, 91, .12); font-size: 24px; font-weight: 850; }
 .slide-qr-single { background: #f4f7fb; }
 .qr-poster { position: absolute; top: 0; bottom: 0; left: 86px; height: 900px; width: auto; box-shadow: 0 14px 45px rgba(7, 29, 91, .16); }
