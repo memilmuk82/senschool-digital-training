@@ -1,0 +1,44 @@
+:root { color-scheme: dark; font-family: Pretendard, "Noto Sans KR", system-ui, sans-serif; }
+* { box-sizing: border-box; }
+html, body, #app { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body { background: #03070e; color: #edf5fb; }
+#app { position: relative; background: radial-gradient(circle at 25% 10%, #173354 0, #03070e 45%); }
+#stage-shell { position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden; }
+#stage { position: absolute; left: 50%; top: 50%; width: 1600px; height: 900px; transform-origin: center; background: #fff; box-shadow: 0 36px 100px rgba(0,0,0,.62); }
+#stage img { display: block; width: 1600px; height: 900px; object-fit: contain; }
+#controls { position: fixed; z-index: 50; left: 50%; bottom: 18px; display: flex; align-items: center; gap: 5px; transform: translateX(-50%); padding: 8px; border: 1px solid rgba(255,255,255,.18); border-radius: 18px; background: rgba(6,24,42,.95); box-shadow: 0 16px 46px rgba(0,0,0,.34); }
+#controls button, .control-link { min-width: 44px; height: 42px; padding: 0 14px; border: 0; border-radius: 10px; background: transparent; color: #edf5fb; font: inherit; font-size: 14px; font-weight: 650; line-height: 42px; text-decoration: none; white-space: nowrap; cursor: pointer; }
+#controls button:hover, #controls button:focus-visible, .control-link:hover, .control-link:focus-visible { outline: none; background: rgba(255,255,255,.13); }
+#controls button:disabled { opacity: .32; cursor: default; }
+#counter { min-width: 74px; color: #b8c9d8; text-align: center; font-size: 13px; font-variant-numeric: tabular-nums; }
+#progress { position: fixed; z-index: 40; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,.08); }
+#progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg,#7469ed,#50d7ff); transition: width .2s ease; }
+#key-help { position: fixed; z-index: 20; right: 16px; top: 12px; color: rgba(233,244,252,.62); font-size: 12px; }
+#notes { position: fixed; z-index: 80; right: 18px; top: 18px; bottom: 78px; width: min(440px, calc(100vw - 36px)); display: none; overflow: auto; padding: 22px; border: 1px solid #dbe5ee; border-radius: 20px; background: rgba(255,255,255,.98); color: #10243b; box-shadow: 0 24px 70px rgba(0,0,0,.38); }
+#notes.open { display: block; }
+.notes-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.notes-head strong { font-size: 20px; }
+.notes-close { width: 36px; height: 36px; border: 0; border-radius: 50%; background: #e9eef4; font-size: 22px; cursor: pointer; }
+.notes-body { font-size: 16px; line-height: 1.72; }
+#overview { position: fixed; z-index: 70; inset: 0; display: none; overflow: auto; padding: 24px; background: rgba(2,8,16,.91); backdrop-filter: blur(10px); }
+#overview.open { display: block; }
+.overview-panel { max-width: 1280px; min-height: calc(100vh - 48px); margin: auto; padding: 30px; border: 1px solid rgba(255,255,255,.14); border-radius: 26px; background: #f7fafc; color: #10243b; box-shadow: 0 28px 90px rgba(0,0,0,.48); }
+.overview-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
+.overview-head h1 { margin: 0; font-size: 34px; }
+.overview-close { width: 42px; height: 42px; border: 0; border-radius: 50%; background: #e6edf3; font-size: 26px; cursor: pointer; }
+.overview-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; }
+.overview-item { min-height: 112px; padding: 16px; border: 1px solid #d8e4ec; border-radius: 16px; background: #fff; color: #10243b; text-align: left; cursor: pointer; }
+.overview-item:hover, .overview-item.active { border-color: #7469ed; box-shadow: 0 8px 24px rgba(75,68,180,.12); }
+.overview-item .num { display: inline-block; margin-bottom: 9px; color: #665be2; font-weight: 800; }
+.overview-item h2 { margin: 0; font-size: 16px; line-height: 1.35; }
+@media (max-width: 900px) { #controls #notes-toggle, #controls #fullscreen, #key-help { display: none; } .overview-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 620px) { #controls { bottom: 8px; } #controls .control-link { display: none; } #controls button { padding: 0 10px; } .overview-grid { grid-template-columns: 1fr; } }
+@page { size: 13.333333in 7.5in; margin: 0; }
+@media print {
+  html, body, #app { width: auto; height: auto; overflow: visible; background: #fff; }
+  #stage-shell { position: static; display: block; overflow: visible; }
+  #stage { position: static; width: 1600px; height: auto; transform: none !important; box-shadow: none; }
+  #stage .print-slide { display: block; width: 1600px; height: 900px; object-fit: contain; break-after: page; page-break-after: always; }
+  #stage .print-slide:last-child { break-after: auto; page-break-after: auto; }
+  #controls, #progress, #notes, #overview, #key-help { display: none !important; }
+}

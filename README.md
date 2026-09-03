@@ -26,6 +26,13 @@
 
 저장소의 **Settings → Pages → Build and deployment → Source**가 **GitHub Actions**로 설정되어 있어야 합니다.
 
+## 네이버웍스 기반 학교 업무 효율화
+
+완성된 90분 연수 슬라이드는 `naver-works-training/` 경로에 함께 배포합니다.
+
+- 웹 슬라이드: `naver-works-training/`
+- PPTX: `naver-works-training/downloads/네이버웍스_기반_학교_업무_효율화_90분_연수_완성본.pptx`
+
 ## 내용 수정
 
 - 슬라이드 내용·순서: `slides-data.js`
