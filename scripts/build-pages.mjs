@@ -14,11 +14,6 @@ for (const filename of ['index.html', 'styles.css', 'slides-data.js', 'app.js', 
   fs.copyFileSync(path.join(projectRoot, filename), path.join(outputRoot, filename));
 }
 
-const naverWorksSource = path.join(projectRoot, 'naver-works-training');
-if (fs.existsSync(naverWorksSource)) {
-  fs.cpSync(naverWorksSource, path.join(outputRoot, 'naver-works-training'), { recursive: true });
-}
-
 const context = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(projectRoot, 'slides-data.js'), 'utf8'), context);
 const slideMarkup = context.window.SLIDES.map((slide) => slide.body || '').join('\n');
@@ -37,7 +32,6 @@ for (const asset of assets) {
 const buildInfo = {
   slides: context.window.SLIDES.length,
   assets: assets.size,
-  naverWorksTraining: fs.existsSync(naverWorksSource),
   generatedAt: new Date().toISOString(),
 };
 fs.writeFileSync(path.join(outputRoot, 'build-info.json'), `${JSON.stringify(buildInfo, null, 2)}\n`);
